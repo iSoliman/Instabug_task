@@ -47,7 +47,9 @@ class MovieCell: UITableViewCell {
         }
         
         posterImage.image = UIImage(named: "movie_placeholder")
-        ImageDownloader.getImage(at: posterPath, success: { [weak self] (image) in
+        
+        let fullPath = ApiURLs.posterBaseURL + posterPath
+        ImageDownloader.getImage(at: fullPath, success: { [weak self] (image) in
             
             self?.posterImage.image = image
         }) { [weak self] in
