@@ -28,9 +28,22 @@ class Instabug_TaskUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testAddingMovie() {
+        
+        let app = XCUIApplication()
+        app.otherElements.containing(.navigationBar, identifier:"Movies").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+        app.textFields["Title"].tap()
+        
+        let overviewTextField = app.textFields["Overview"]
+        overviewTextField.tap()
+        overviewTextField.tap()
+        
+        let datePickersQuery = app.datePickers
+        datePickersQuery.pickerWheels["2019"].swipeDown()
+        app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCUIApplication().buttons["Save"].tap()
+        
     }
     
 }
