@@ -6,7 +6,6 @@
 //  Copyright © 2019 Islam Soliman. All rights reserved.
 //
 
-// Islam comment
 import UIKit
 
 @UIApplicationMain
